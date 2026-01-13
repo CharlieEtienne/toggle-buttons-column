@@ -2,6 +2,9 @@
 
 Like Filament's ToggleButtons, but for table columns.
 
+<img width="873" height="625" alt="toggle-buttons-column-for-filament" src="https://github.com/user-attachments/assets/592d9683-4a99-499f-bf2f-454a89305c27" />
+
+
 ## Installation
 
 You can install the package via composer:
