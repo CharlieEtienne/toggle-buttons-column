@@ -1,0 +1,46 @@
+{
+    "name": "charlieetienne/toggle-buttons-column",
+    "description": "A Filament table column component to have toggle buttons but in a table column.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "filament",
+        "laravel",
+        "toggle-buttons",
+        "column",
+        "table"
+    ],
+    "authors": [
+        {
+            "name": "Charlie Etienne",
+            "email": "hello@charlieetienne.com"
+        }
+    ],
+    "homepage": "https://github.com/charlieetienne/toggle-buttons-column",
+    "support": {
+        "issues": "https://github.com/charlieetienne/toggle-buttons-column/issues",
+        "source": "https://github.com/charlieetienne/toggle-buttons-column"
+    },
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0"
+    },
+    "require-dev": {
+        "laravel/framework": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CharlieEtienne\\ToggleButtonsColumn\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CharlieEtienne\\ToggleButtonsColumn\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
