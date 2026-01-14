@@ -119,6 +119,37 @@ class ToggleButtonsColumn extends Column implements Editable, HasEmbeddedView
         return $state;
     }
 
+    /**
+     * @var array<int|string, string|int> | Closure | null
+     */
+    protected array | Closure | null $tooltips = null;
+
+    /**
+     * @param  array<int|string, string|int> | Closure | null  $tooltips
+     */
+    public function tooltips(array | Closure | null $tooltips): static
+    {
+        $this->tooltips = $tooltips;
+
+        return $this;
+    }
+
+    /**
+     * @return string | array<int | string, string | int> | null
+     */
+    public function getItemTooltip(mixed $value): string | array | null
+    {
+        return $this->getTooltips()[$value] ?? null;
+    }
+
+    /**
+     * @return array<int|string, string|int> | null
+     */
+    public function getTooltips(): ?array
+    {
+        return $this->evaluate($this->tooltips);
+    }
+
     public function toEmbeddedHtml(): string
     {
         $id = $this->getName();
@@ -230,6 +261,7 @@ class ToggleButtonsColumn extends Column implements Editable, HasEmbeddedView
                     $shouldOptionBeDisabled = $isDisabled || $this->isOptionDisabled($value, $label);
                     $color = $this->getColor($value);
                     $icon = $this->getIcon($value);
+                    $tooltip = $this->getItemTooltip($value);
                     ?>
                     <?php if (! $isGrouped) { ?>
                         <div class="fi-fo-toggle-buttons-btn-ctn">
@@ -255,6 +287,7 @@ class ToggleButtonsColumn extends Column implements Editable, HasEmbeddedView
                             label: $label,
                             size: $size,
                             tag: 'label',
+                            tooltip: $tooltip,
                         ) ?>
                     <?php if (! $isGrouped) { ?>
                         </div>
